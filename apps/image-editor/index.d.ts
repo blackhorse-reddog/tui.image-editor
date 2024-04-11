@@ -56,6 +56,7 @@ declare namespace tuiImageEditor {
     'range.title.fontWeight'?: string;
     'colorpicker.button.border'?: string;
     'colorpicker.title.color'?: string;
+    'header.display'?:string; 
   }
 
   interface IIconInfo {
@@ -79,6 +80,7 @@ declare namespace tuiImageEditor {
     left?: number;
     top?: number;
     isRegular?: boolean;
+    opacity?: number; 
   }
 
   interface IGenerateTextOptions {
@@ -116,9 +118,9 @@ declare namespace tuiImageEditor {
   }
 
   interface ICanvasSize {
-    width: number;
-    height: number;
-  }
+    x: number;
+    y: number;
+  } 
 
   interface IBrushOptions {
     width: number;
@@ -265,8 +267,8 @@ declare namespace tuiImageEditor {
     public ui: UI;
 
     public addIcon(type: string, options?: IIconOptions): Promise<IObjectProps>;
-    public addImageObject(imgUrl: string): Promise<void>;
-    public addShape(type: string, options?: IShapeOptions): Promise<IObjectProps>;
+    public addImageObject(imgUrl: string): Promise<IObjectProps>;
+    public addShape(type: string, options?: any): Promise<IObjectProps>;
     public addText(text: string, options?: IGenerateTextOptions): Promise<ITextObjectProps>;
     public applyFilter(
       type: string,
@@ -276,7 +278,7 @@ declare namespace tuiImageEditor {
     public changeCursor(cursorType: string): void;
     public changeIconColor(id: number, color: string): Promise<void>;
     public changeSelectableAll(selectable: boolean): void;
-    public changeShape(id: number, options?: IShapeOptions, isSilent?: boolean): Promise<void>;
+    public changeShape(id: number, options?: any, isSilent?: boolean): Promise<void>;
     public changeText(id: number, text?: string): Promise<void>;
     public changeTextStyle(
       id: number,
